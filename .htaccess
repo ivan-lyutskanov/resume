@@ -1,0 +1,9 @@
+#Force non-www:
+RewriteEngine on
+RewriteCond %{HTTP_HOST} ^www\.lyutskanov\.info [NC]
+RewriteRule ^(.*)$ http://lyutskanov.info/$1 [L,R=301]
+
+#Force HTTPS
+RewriteEngine On
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
